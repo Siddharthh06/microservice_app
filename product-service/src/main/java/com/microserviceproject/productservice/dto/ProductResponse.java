@@ -8,6 +8,9 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
+// good practice to separate model entities and DTOs
+// that is why created ProductResponse
+
 @Data
 @Builder
 @AllArgsConstructor
