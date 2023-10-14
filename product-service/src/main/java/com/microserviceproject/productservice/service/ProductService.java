@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+// @AllArgsConstructor generates a constructor requiring an argument for every field in the annotated class.
 @RequiredArgsConstructor
 @Slf4j
 public class ProductService {
@@ -34,10 +35,11 @@ public class ProductService {
     public List<ProductResponse> getAllProducts() {
         List<Product> products = productRepository.findAll();
 
-        return products.stream().map(this::mapToProductResponse).collect(Collectors.toList());
+        return products.stream().map(this::mapToProductResponse).toList();
     }
 
     private ProductResponse mapToProductResponse(Product product) {
+        // create object for ProductResponse using builder method
         return ProductResponse.builder()
                 .id(product.getId())
                 .name(product.getName())

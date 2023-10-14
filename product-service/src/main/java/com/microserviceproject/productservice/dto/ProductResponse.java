@@ -5,18 +5,21 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
 
 import java.math.BigDecimal;
 
 // good practice to separate model entities and DTOs
 // that is why created ProductResponse
 
+// ideally should not expose model entities to the outside world
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProductResponse {
 
+    @Id
     private String id;
     private String name;
     private String description;
